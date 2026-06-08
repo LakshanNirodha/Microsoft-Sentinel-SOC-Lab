@@ -163,6 +163,32 @@ addresses identified suggesting VPN usage. Recommended
 immediate MFA enforcement and password reset for affected accounts.
 
 ---
+## 🔍 Threat Intelligence Investigation
+
+After detecting the attack I cross-referenced all attacker 
+IPs with VirusTotal threat intelligence.
+
+| IP | Country | ISP | VirusTotal Result |
+|----|---------|-----|-------------------|
+| 186.87.10.82 | Colombia 🇨🇴 | Telmex Colombia | 0/91 Clean |
+| 45.10.155.165 | France 🇫🇷 | PacketHub S.A. | ⚠️ Suspicious (GreyNoise) |
+| 196.117.73.223 | Morocco 🇲🇦 | MEDITELECOM | 0/91 Clean |
+
+### Key Finding
+The attacker used 3 different countries to avoid detection.
+IP 45.10.155.165 (France, PacketHub S.A.) was flagged 
+suspicious by GreyNoise — a hosting provider used for VPNs 
+and rented attack servers.
+
+All IPs showed clean reputation on standard blacklists —
+meaning traditional IP blocking would have completely missed
+this attack. Only behavioural detection through Microsoft
+Sentinel KQL identified the threat.
+
+This demonstrates why SIEM-based behavioural analysis is
+essential in modern SOC environments.
+
+---
 
 ## 📊 Screenshots
 

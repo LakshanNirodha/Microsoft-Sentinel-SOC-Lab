@@ -6,7 +6,7 @@
 | **Environment** | Microsoft Sentinel SOC Lab (SentinelLabRG, Southeast Asia region) |
 | **Applies to** | SIEM alerts matching brute-force / password spray patterns against Azure AD sign-ins |
 | **MITRE ATT&CK mapping** | T1110.003 (Brute Force: Password Spraying) |
-| **Status** | Living document — update after every new incident or lesson learned |
+| **Status** | Living document - update after every new incident or lesson learned |
 | **Last updated** | August 2026 |
 
 ---
@@ -28,12 +28,12 @@
 
 1. Open the triggered incident in Sentinel (e.g. Incident 482)
 2. Run the saved KQL queries against `SigninLogs` to confirm the pattern: many failed logins, across many different user accounts, from a small number of source IPs, in a short time window
-3. Check how many accounts are affected — in the real incident this was **57 Melbourne Polytechnic student accounts**
+3. Check how many accounts are affected - in the real incident this was **57 Melbourne Polytechnic student accounts**
 4. Identify the source IP addresses involved
 5. Run each source IP through **VirusTotal** to check reputation/threat intelligence (real incident: attacker IPs traced to Colombia, France, and Morocco)
 6. Classify the incident: **True Positive** or **False Positive**, based on evidence gathered
 
-> **Real example finding:** confirmed True Positive — a live password spray attack against 57 student accounts, from three IPs with poor VirusTotal reputations.
+> **Real example finding:** confirmed True Positive - a live password spray attack against 57 student accounts, from three IPs with poor VirusTotal reputations.
 
 ## 3. Containment
 
